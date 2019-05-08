@@ -175,11 +175,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905082219111_Initial Model.cs" />
+    <Compile Include="Migrations\201905082219111_Initial Model.Designer.cs">
+      <DependentUpon>201905082219111_Initial Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905082234362_AddCustomerEquipmentModel.cs" />
+    <Compile Include="Migrations\201905082234362_AddCustomerEquipmentModel.Designer.cs">
+      <DependentUpon>201905082234362_AddCustomerEquipmentModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905082344540_AddRentalType.cs" />
+    <Compile Include="Migrations\201905082344540_AddRentalType.Designer.cs">
+      <DependentUpon>201905082344540_AddRentalType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905082345203_UpdateRentalType.cs" />
+    <Compile Include="Migrations\201905082345203_UpdateRentalType.Designer.cs">
+      <DependentUpon>201905082345203_UpdateRentalType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905082351379_ApplyAnnotation.cs" />
+    <Compile Include="Migrations\201905082351379_ApplyAnnotation.Designer.cs">
+      <DependentUpon>201905082351379_ApplyAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RentalType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
@@ -263,6 +285,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905082219111_Initial Model.resx">
+      <DependentUpon>201905082219111_Initial Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905082234362_AddCustomerEquipmentModel.resx">
+      <DependentUpon>201905082234362_AddCustomerEquipmentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905082344540_AddRentalType.resx">
+      <DependentUpon>201905082344540_AddRentalType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905082345203_UpdateRentalType.resx">
+      <DependentUpon>201905082345203_UpdateRentalType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905082351379_ApplyAnnotation.resx">
+      <DependentUpon>201905082351379_ApplyAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
