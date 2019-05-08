@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EGym.Models.Equipment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*
+    May want to include class type for promotions later one
+*@
+
+<h2>Equipment</h2>
+@if (!Model.Any())
+{
+    <p>We don't have any equipment available...</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Equipment</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var equipment in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(equipment.EquipmentName, "Index", "Equipment", new { id = equipment.Id }, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
