@@ -1,0 +1,46 @@
+﻿@model EGym.ViewModels.EquipmentFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Equipment"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Equipment.Name)
+        @Html.TextBoxFor(m => m.Equipment.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Equipment.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Equipment.Photo)
+        @Html.TextBoxFor(m => m.Equipment.Photo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Equipment.Photo)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Equipment.Description)
+        @Html.TextBoxFor(m => m.Equipment.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Equipment.Description)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Equipment.RentalTypeId)
+        @Html.DropDownListFor(m => m.Equipment.RentalTypeId, new SelectList(Model.RentalTypes, "Id",
+            "RentalFee"), "Select Rental Fee", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Equipment.RentalTypeId)
+    </div>
+
+    @Html.HiddenFor(m => m.Equipment.Id)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

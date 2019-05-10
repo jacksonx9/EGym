@@ -1,8 +1,20 @@
 ﻿@model EGym.Models.Equipment
 @{
-    ViewBag.Title = @Model.EquipmentName;
+    ViewBag.Title = @Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.EquipmentName</h2>
+<h2>@Model.Name</h2>
+
+@if (@Model.Customer.Name == null)
+{
+    <h5>At the moment, there is no one using the @Model.Name.</h5>
+}
+else
+{
+    <h4>Used by @Model.Customer.Name</h4>
+}
+
+<p>@Model.Description</p>
+
 

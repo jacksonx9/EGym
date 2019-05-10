@@ -22,8 +22,8 @@ namespace EGym.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Photo = c.String(),
-                        EquipmentName = c.String(),
-                        EquipmentDescription = c.String(),
+                        Name = c.String(),
+                        Description = c.String(),
                         Availability = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);

@@ -9,25 +9,65 @@
 *@
 
 <h2>Equipment</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any equipment available...</p>
-}
-else
-{
-    <table class="table table-bordered table-hover">
-        <thead>
+<p>
+    @Html.ActionLink("New Equipment", "New", "Equipment", null, new { @class = "btn btn-primary" })
+</p>
+
+<table id="equipments" class="table table-bordered table-hover">
+    <thead>
         <tr>
             <th>Equipment</th>
+            <th>Rental Type</th>
+            <th>Delete</th>
         </tr>
-        </thead>
-        <tbody>
-        @foreach (var equipment in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(equipment.EquipmentName, "Index", "Equipment", new { id = equipment.Id }, null)</td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#equipments").DataTable({
+                ajax: {
+                    url: "/api/equipments",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function(data, type, equipment) {
+                            return "<a href='/Equipment/Edit/" + equipment.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "rentalType.rentalFee"
+                    },
+                    {
+                        data: "id",
+                        render: function(data) {
+                            return "<button class='btn-link js-delete' data-equipment-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#equipments").on("click", ".js-delete",
+                function() {
+                    var button = $(this);
+
+                    bootbox.confirm("Are you sure you want to delete this equipment?", function(result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/equipments/" + button.attr("data-equipment-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    table.row(button.parents("tr")).remove().draw();
+                                }
+                            });
+                        }
+                    });
+                });
+        });
+    </script>
 }
