@@ -23,8 +23,8 @@ namespace EGym.Controllers.Api
         // GET /api/equipments
         public IEnumerable<EquipmentDto> GetEquipments()
         {
-            return _context.Equipments.
-                Include(e => e.RentalType)
+            return _context.Equipments
+                .Include(e => e.RentalType)
                 .ToList()
                 .Select(Mapper.Map<Equipment, EquipmentDto>);
         }

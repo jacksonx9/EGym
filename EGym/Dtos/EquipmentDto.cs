@@ -29,6 +29,8 @@ namespace EGym.Dtos
         [Required(ErrorMessage = "Please select an hourly rental fee.")]
         public byte RentalTypeId { get; set; }
 
+        public CustomerDto Customer { get; set; }
+
         public int CustomerId { get; set; }
 
         public static readonly byte Avaiable = 0;

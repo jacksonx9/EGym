@@ -8,7 +8,7 @@ namespace EGym.Models
 {
     public class Equipment
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
 
         [Required(ErrorMessage = "Please enter the equipment's name.")]
         [StringLength(30)]

@@ -24,6 +24,7 @@ namespace EGym.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize(Roles = RoleName.CanManageEquipment)]
         public ActionResult New()
         {
             var rentalType = _context.RentalTypes.ToList();
@@ -52,7 +53,7 @@ namespace EGym.Controllers
 
             if (equipment.Id == 0)
             {
-                equipment.CustomerId = 1;
+                equipment.CustomerId = 3;
                 _context.Equipments.Add(equipment);
             }
             else
@@ -69,7 +70,10 @@ namespace EGym.Controllers
         // GET: Equipment
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageEquipment))
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)

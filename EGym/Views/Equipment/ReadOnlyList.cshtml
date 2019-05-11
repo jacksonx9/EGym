@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EGym.Models.Equipment>
+@{
+    ViewBag.Title = "ReadOnlyList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*
+    May want to include class type for promotions later one
+*@
+
+<h2>Equipment</h2>
+
+<table id="equipments" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Equipment</th>
+            <th>Rental Type</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#equipments").DataTable({
+                ajax: {
+                    url: "/api/equipments",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function(data, type, equipment) {
+                            return "<a href='/Equipment/Details/" + equipment.id + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "rentalType.rentalFee"
+                    }
+                ]
+            });
+    </script>
+}

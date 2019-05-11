@@ -13,7 +13,7 @@ namespace EGym
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapMvcAttributeRoutes();
+            // routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "Default",
