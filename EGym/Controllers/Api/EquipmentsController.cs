@@ -73,7 +73,7 @@ namespace EGym.Controllers.Api
             _context.SaveChanges();
         }
 
-        // DELETE /api/customers/1
+        // DELETE /api/equipment/1
         [HttpDelete]
         public void DeleteEquipment(int id)
         {

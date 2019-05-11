@@ -53,7 +53,6 @@ namespace EGym.Controllers
 
             if (equipment.Id == 0)
             {
-                equipment.CustomerId = 3;
                 _context.Equipments.Add(equipment);
             }
             else
@@ -78,8 +77,7 @@ namespace EGym.Controllers
 
         public ActionResult Details(int id)
         {
-            // var customers = _context.Customers..ToList();
-            var equipment = _context.Equipments.Include(e => e.Customer).SingleOrDefault(c => c.Id == id);
+            var equipment = _context.Equipments.SingleOrDefault(c => c.Id == id);
             if (equipment == null)
                 return HttpNotFound();
 

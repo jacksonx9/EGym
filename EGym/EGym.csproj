@@ -239,12 +239,17 @@
     <Compile Include="Migrations\201905102227383_SeedUsers.Designer.cs">
       <DependentUpon>201905102227383_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905110130345_RemoveCustomerEquipmentRelation.cs" />
+    <Compile Include="Migrations\201905110130345_RemoveCustomerEquipmentRelation.Designer.cs">
+      <DependentUpon>201905110130345_RemoveCustomerEquipmentRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Min19Years.cs" />
     <Compile Include="Models\RentalType.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -543,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905102227383_SeedUsers.resx">
       <DependentUpon>201905102227383_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905110130345_RemoveCustomerEquipmentRelation.resx">
+      <DependentUpon>201905110130345_RemoveCustomerEquipmentRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

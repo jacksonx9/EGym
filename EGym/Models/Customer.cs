@@ -17,6 +17,7 @@ namespace EGym.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Sorry. You must be 19 years old in order to go to the EGym.")]
+        [Min19Years]
         public bool IsOver19 { get; set; }
     }
 }

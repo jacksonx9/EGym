@@ -24,8 +24,9 @@ else
 
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.IsOver19) Is over 19 years of age?
+            @Html.CheckBoxFor(m => m.IsOver19) Is over 19 years old?
         </label>
+        @Html.ValidationMessageFor(m => m.IsOver19)
     </div>
 
     @Html.HiddenFor(m => m.Id);

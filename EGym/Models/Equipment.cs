@@ -32,10 +32,6 @@ namespace EGym.Models
         [Display(Name = "Rental Fee per Hour")]
         public byte RentalTypeId { get; set; }
 
-        public Customer Customer { get; set; }
-
-        public int CustomerId { get; set; }
-
         public static readonly byte Avaiable = 0;
     }
 }

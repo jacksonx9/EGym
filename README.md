@@ -6,6 +6,7 @@ Unique gym where you pay a small fee using a QR Code every time you use a piece 
 
 * Email authorization with option to login with Facebook
 * Forms to add new customers and gym equipment
+* Stores customer and gym equipment information using SQL database
 * RESTful Services to allow interactions between server and client
 * Client and server side validation
 

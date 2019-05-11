@@ -18,13 +18,13 @@ namespace EGym.App_Start
             Mapper.CreateMap<RentalType, RentalTypeDto>();
 
             // Dto to Domain
-            Mapper.CreateMap<EquipmentDto, Equipment>().ForMember(m => m.Id, opt => opt.Ignore()).ForMember(m => m.CustomerId, opt => opt.Ignore());
+            Mapper.CreateMap<EquipmentDto, Equipment>().ForMember(m => m.Id, opt => opt.Ignore());
             Mapper.CreateMap<CustomerDto, Customer>().ForMember(m => m.Id, opt => opt.Ignore());
-            Mapper.CreateMap<RentalTypeDto, RentalType>().ForMember(m => m.Id, opt => opt.Ignore()); 
+            Mapper.CreateMap<RentalTypeDto, RentalType>();
 
             // Within Domain
-            Mapper.CreateMap<Equipment, Equipment>().ForMember(m => m.CustomerId, opt => opt.Ignore());
-            Mapper.CreateMap<Customer, Customer>().ForMember(m => m.Id, opt => opt.Ignore());
+            Mapper.CreateMap<Equipment, Equipment>();
+            Mapper.CreateMap<Customer, Customer>();
         }
     }
 }
